@@ -1,0 +1,14 @@
+
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "target": "ES6",
+    "sourceMap": false,
+    "incremental": false,
+    "experimentalDecorators": true
+  },
+  "include": ["lib/**/*"],
+  "exclude": ["node_modules", "**/*.spec.ts", "tests"]
+}

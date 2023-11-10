@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "declaration": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "es2017",
+    "sourceMap": true,
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "incremental": true,
+    "skipLibCheck": true,
+    "strictNullChecks": false,
+    "noImplicitAny": false,
+    "strictBindCallApply": false,
+    "forceConsistentCasingInFileNames": false,
+    "noFallthroughCasesInSwitch": false,
+    "paths": {
+      "@config/*": ["src/config/*"],
+      "@modules/*": ["src/modules/*"],
+      "@controllers/*": ["src/controllers/*"],
+      "@services/*": ["src/services/*"],
+      "@entities/*": ["src/entities/*"],
+      "@dtos/*": ["src/dtos/*"],
+      "@vos/*": ["src/vos/*"],
+      "@helpers/*": ["src/helpers/*"],
+      "@interceptors/*": ["src/interceptors/*"],
+      "@pipes/*": ["src/pipes/*"],
+      "@guards/*": ["src/guards/*"],
+      "@processors/*": ["src/processors/*"]
+    }
+  },
+  "exclude": ["node_modules", "dist", "**/*spec.ts"]
+}

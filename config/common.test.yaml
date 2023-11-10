@@ -1,0 +1,66 @@
+# 微信相关配置
+wechat:
+  # 微信小程序配置
+  wechatApp:
+    appid: 'appid'
+    secret: 'secret'
+
+# 数据库配置
+db:
+  mysql:
+    host: '127.0.0.1'
+    username: 'root'
+    password: 'password'
+    database: 'bszhct'
+    port: 3306
+    charset: 'utf8mb4'
+    timezone: '+08:00'
+    synchronize: false
+  redis:
+    host: '127.0.0.1'
+    port: '6379'
+    password: 'password'
+    db: 0
+
+# 文件存储
+oss:
+  aliyun:
+    enable: true
+    config:
+      accessKeyId: 'accessKeyId'
+      accessKeySecret: 'accessKeySecret'
+      region: 'oss-cn-hangzhou'
+      bucket: 'bszhct-static-test'
+      endpoint: 'https://test.static.bszhct.com'
+      cname: true
+
+# JWT
+jwt:
+  secret: 'c16ef2cd-e8a1-4f20-ac27-a919a9162f61'
+  # 30 天
+  expires: '30d'
+
+# cookie
+cookie:
+  key: 'bszhct-app-local'
+  secret: '5b06ee26-2207-45ae-b90e-8f20529f77b2'
+  domain: '192.168.1.101'
+  # 30 天
+  maxAge: 2592000000
+
+# 限流配置
+rateLimit:
+  enable: true
+  # 限流时间
+  windowMs: 60000
+  # 限流数量
+  max: 1000
+
+# 秘钥配置
+crypto:
+  aes:
+    key: 'key'
+    iv: 'iv'
+  rsa:
+    privatePath: '/private.pem'
+    publicPath: '/public.pem'

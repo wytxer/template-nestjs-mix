@@ -1,0 +1,17 @@
+# 服务配置
+server:
+  port: 9301
+  hostname: '0.0.0.0'
+  apiPrefix: '/api'
+  # 鉴权白名单
+  authWhitelist:
+    - '/api/v1/user/mockLogin'
+    - '/api/v1/user/wechatLogin'
+    - '/api/v1/user/wechatGetPhone'
+    - '/api/v1/user/logout'
+  # 响应数据白名单
+  responseDataWhitelist:
+  # 跨域白名单
+  allowlist:
+    - 'http://192.168.1.101:9201'
+    - 'https://blog.bszhct.com'
