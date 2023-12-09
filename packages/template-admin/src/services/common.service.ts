@@ -18,8 +18,9 @@ export class CommonService {
    */
   async upload(file: Express.Multer.File, body: CommonUploadDto): Promise<any> {
     const isPrivate = body.private === 'y'
+    const name = extname(body.originalName || file.originalname)
     const { name: fileName, url: filePath } = await this.fileService.upload({
-      key: `/${this.folder}/${body.key || createUuid()}${extname(body.originalName || file.originalname)}`,
+      key: `/${body.folder || this.folder}/${body.key || createUuid()}${name}`,
       url: file.buffer,
       headers: {
         'x-oss-object-acl': isPrivate ? 'private' : 'public-read'

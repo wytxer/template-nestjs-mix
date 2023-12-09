@@ -17,7 +17,7 @@ let AdminEntity = class AdminEntity extends sequelize_typescript_1.Model {
 __decorate([
     (0, sequelize_typescript_1.Column)({
         type: sequelize_typescript_1.DataType.INTEGER.UNSIGNED,
-        primaryKey: true,
+        unique: true,
         autoIncrement: true,
         comment: 'id'
     }),
@@ -45,13 +45,13 @@ __decorate([
 ], AdminEntity.prototype, "name", void 0);
 __decorate([
     (0, sequelize_typescript_1.Column)({
-        type: sequelize_typescript_1.DataType.STRING,
+        type: sequelize_typescript_1.DataType.STRING(32),
         allowNull: false,
-        comment: '工号'
+        comment: '手机号'
     }),
-    (0, swagger_1.ApiProperty)({ description: '工号', example: 'root' }),
+    (0, swagger_1.ApiProperty)({ description: '手机号', example: '13011112222' }),
     __metadata("design:type", String)
-], AdminEntity.prototype, "jobNumber", void 0);
+], AdminEntity.prototype, "phone", void 0);
 __decorate([
     (0, sequelize_typescript_1.Column)({
         type: sequelize_typescript_1.DataType.STRING,

@@ -93,6 +93,11 @@ export class CommonUploadDto {
 
   @IsOptional()
   @IsString()
-  @ApiProperty({ description: '是否私有存储', example: false })
-  private?: string
+  @ApiProperty({ description: '是否私有存储', example: 'n' })
+  private?: string = 'y'
+
+  @IsOptional()
+  @IsString()
+  @ApiProperty({ description: '保存文件夹', example: 'helper' })
+  folder?: string
 }

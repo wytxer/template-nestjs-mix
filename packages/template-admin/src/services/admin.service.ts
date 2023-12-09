@@ -33,8 +33,8 @@ export class AdminService {
    */
   async login(body: AdminLoginDto): Promise<AdminInfoVo> {
     const admin = await this.adminRepo.findOne({
-      where: { jobNumber: body.jobNumber },
-      attributes: ['id', 'adminId', 'name', 'jobNumber', 'password', 'isEnabled', 'loggedAt', 'createdAt']
+      where: { phone: body.phone },
+      attributes: ['id', 'adminId', 'name', 'phone', 'password', 'isEnabled', 'loggedAt', 'createdAt']
     })
     if (!admin) {
       throw new BadRequestException('账号或密码错误')
@@ -51,12 +51,12 @@ export class AdminService {
     // 更新登录时间
     const loggedAt = moment().format('YYYY-MM-DD HH:mm:ss')
     await admin.update({ loggedAt })
-    const { adminId, name, jobNumber, isEnabled, createdAt } = admin
+    const { adminId, name, phone, isEnabled, createdAt } = admin
     // 组装需要返回的数据
     return {
       adminId,
       name,
-      jobNumber,
+      phone,
       isEnabled,
       loggedAt,
       createdAt
@@ -72,7 +72,7 @@ export class AdminService {
     return this.adminRepo
       .findOne({
         where: { adminId },
-        attributes: ['id', 'adminId', 'name', 'jobNumber', 'isEnabled', 'loggedAt', 'createdAt']
+        attributes: ['id', 'adminId', 'name', 'phone', 'isEnabled', 'loggedAt', 'createdAt']
       })
       .then(async (admin) => {
         if (!admin) {
@@ -85,12 +85,12 @@ export class AdminService {
         // 更新登录时间
         const loggedAt = moment().format('YYYY-MM-DD HH:mm:ss')
         await admin.update({ loggedAt })
-        const { adminId, name, jobNumber, isEnabled, createdAt } = admin
+        const { adminId, name, phone, isEnabled, createdAt } = admin
         // 组装需要返回的数据
         return {
           adminId,
           name,
-          jobNumber,
+          phone,
           isEnabled,
           loggedAt,
           createdAt

@@ -51,7 +51,7 @@ __decorate([
     }),
     (0, swagger_1.ApiProperty)({ description: '工号', example: 'root' }),
     __metadata("design:type", String)
-], AdminEntity.prototype, "jobNumber", void 0);
+], AdminEntity.prototype, "phone", void 0);
 __decorate([
     (0, sequelize_typescript_1.Column)({
         type: sequelize_typescript_1.DataType.STRING,

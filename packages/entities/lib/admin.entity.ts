@@ -8,7 +8,7 @@ import { ApiProperty } from '@nestjs/swagger'
 export class AdminEntity extends Model {
   @Column({
     type: DataType.INTEGER.UNSIGNED,
-    primaryKey: true,
+    unique: true,
     autoIncrement: true,
     comment: 'id'
   })
@@ -33,12 +33,12 @@ export class AdminEntity extends Model {
   name: string
 
   @Column({
-    type: DataType.STRING,
+    type: DataType.STRING(32),
     allowNull: false,
-    comment: '工号'
+    comment: '手机号'
   })
-  @ApiProperty({ description: '工号', example: 'root' })
-  jobNumber: string
+  @ApiProperty({ description: '手机号', example: '13011112222' })
+  phone: string
 
   @Column({
     type: DataType.STRING,

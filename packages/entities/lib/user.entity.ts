@@ -11,7 +11,7 @@ const defaultAvatarUrl = 'https://static.bszhct.com/common/default-avatar.jpg'
 export class UserEntity extends Model {
   @Column({
     type: DataType.INTEGER.UNSIGNED,
-    primaryKey: true,
+    unique: true,
     autoIncrement: true,
     comment: 'id'
   })

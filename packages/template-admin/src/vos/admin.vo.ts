@@ -7,7 +7,7 @@ import { AdminEntity } from 'entities'
 export class AdminInfoVo extends PickType(AdminEntity, [
   'adminId',
   'name',
-  'jobNumber',
+  'phone',
   'isEnabled',
   'loggedAt',
   'createdAt'

@@ -18,10 +18,10 @@ export class AdminAdminIdDto {
 export class AdminLoginDto {
   @IsNotEmpty()
   @IsString()
-  @MinLength(4)
-  @MaxLength(6)
-  @ApiProperty({ description: '工号', example: 'root' })
-  jobNumber: string
+  @MinLength(7)
+  @MaxLength(11)
+  @ApiProperty({ description: '手机号', example: '13011112222' })
+  phone: string
 
   @IsNotEmpty()
   @IsString()

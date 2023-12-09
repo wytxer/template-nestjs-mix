@@ -25,7 +25,7 @@ CREATE TABLE `admin` (
   `id` int unsigned NOT NULL AUTO_INCREMENT COMMENT 'id',
   `admin_id` char(36) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL COMMENT '管理员 id',
   `name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL COMMENT '管理员名称',
-  `job_number` varchar(255) COLLATE utf8mb4_general_ci NOT NULL COMMENT '工号',
+  `phone` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '手机号',
   `password` varchar(255) COLLATE utf8mb4_general_ci NOT NULL COMMENT '登陆密码',
   `description` varchar(255) COLLATE utf8mb4_general_ci NOT NULL COMMENT '描述',
   `is_enabled` tinyint(1) NOT NULL DEFAULT '1' COMMENT '账号状态，true：启用，false：禁用',
@@ -33,14 +33,15 @@ CREATE TABLE `admin` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   `deleted_at` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`,`admin_id`)
+  PRIMARY KEY (`admin_id`) USING BTREE,
+  UNIQUE KEY `unique_id_constraint` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='管理员表';
 
 -- ----------------------------
 -- Records of admin
 -- ----------------------------
 BEGIN;
-INSERT INTO `admin` (`id`, `admin_id`, `name`, `job_number`, `password`, `description`, `is_enabled`, `logged_at`, `created_at`, `updated_at`, `deleted_at`) VALUES (1, '8ce186c4-d2f5-4519-8342-a3b97d42d04f', '超级管理员', 'root', 'd26bddd6d0a7fa78a7721fd278230e03$de74a30e323217c69b1d3d6debad157f27424f8e257c7214f6f2cbdec4ccbbf2ad9e7be4ca45c4ecb0d34d02e0d3098f1f0c11823245aa0ffd65dc7edfb7efb4', '拥有最高权限', 1, '2023-11-10 17:46:25', '2023-11-10 11:58:33', '2023-11-10 17:46:25', NULL);
+INSERT INTO `admin` (`id`, `admin_id`, `name`, `phone`, `password`, `description`, `is_enabled`, `logged_at`, `created_at`, `updated_at`, `deleted_at`) VALUES (1, '8ce186c4-d2f5-4519-8342-a3b97d42d04f', '超级管理员', '13011112222', 'd26bddd6d0a7fa78a7721fd278230e03$de74a30e323217c69b1d3d6debad157f27424f8e257c7214f6f2cbdec4ccbbf2ad9e7be4ca45c4ecb0d34d02e0d3098f1f0c11823245aa0ffd65dc7edfb7efb4', '拥有最高权限', 1, '2023-11-10 17:46:25', '2023-11-10 11:58:33', '2023-11-10 17:46:25', NULL);
 COMMIT;
 
 -- ----------------------------
